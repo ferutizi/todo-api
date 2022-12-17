@@ -1,6 +1,7 @@
 package com.todo.CrudTodo.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,19 @@ public class TodoService {
 
     public TodoModel guardarTodo(TodoModel todo){
         return todoRepository.save(todo);
+    }
+
+    public Optional<TodoModel> obtenerPorId(Long id){
+        return todoRepository.findById(id);
+    }
+
+    public boolean eliminarTodo(Long id){
+        try {
+            todoRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

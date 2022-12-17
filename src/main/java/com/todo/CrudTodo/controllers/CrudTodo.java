@@ -24,7 +24,7 @@ public class CrudTodo {
     }
 
     @PostMapping()
-    public TodoModel guardarUsuario(@RequestBody TodoModel todo){
+    public TodoModel guardarTodo(@RequestBody TodoModel todo){
         return this.todoService.guardarTodo(todo);
     }
 }
