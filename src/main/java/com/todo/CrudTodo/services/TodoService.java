@@ -35,4 +35,13 @@ public class TodoService {
         }
     }
 
+    public boolean eliminarTodos(){
+        try {
+            todoRepository.deleteAll();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
