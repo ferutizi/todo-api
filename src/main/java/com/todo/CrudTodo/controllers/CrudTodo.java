@@ -38,4 +38,10 @@ public class CrudTodo {
     public void eliminarTodo(@PathVariable("id") Long id) {
         todoService.eliminarTodo(id);
     }
+
+    @DeleteMapping(value = "/delete")
+    public void eliminarTodos() {
+        todoService.eliminarTodos();
+    }
+
 }
