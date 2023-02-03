@@ -26,6 +26,13 @@ public class TodoService {
         return todoRepository.findById(id);
     }
 
+    public void updateTodo(Long id, TodoModel todo) {
+        if(todo.getId().equals(id)) {
+            todoRepository.save(todo);
+            return;
+        }
+    }
+
     public boolean eliminarTodo(Long id){
         try {
             todoRepository.deleteById(id);

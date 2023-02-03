@@ -17,7 +17,7 @@ import com.todo.CrudTodo.models.TodoModel;
 import com.todo.CrudTodo.services.TodoService;
 
 @RestController
-@RequestMapping(value = "/", method={RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE})
+@RequestMapping(value = "/", method={RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.PUT})
 @CrossOrigin(origins = "http://localhost:3000", allowedHeaders = "*")
 public class CrudTodo {
     @Autowired
@@ -42,6 +42,11 @@ public class CrudTodo {
     @DeleteMapping(value = "/delete")
     public void eliminarTodos() {
         todoService.eliminarTodos();
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/update/{id}")
+    public void updateTodo(@RequestBody TodoModel todo, @PathVariable("id") Long id) {
+        todoService.updateTodo(id, todo);
     }
 
 }
